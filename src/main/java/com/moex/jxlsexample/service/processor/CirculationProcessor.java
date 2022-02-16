@@ -3,6 +3,7 @@ package com.moex.jxlsexample.service.processor;
 import com.moex.jxlsexample.model.Circulation;
 import org.jxls.common.Context;
 import org.jxls.util.JxlsHelper;
+import org.springframework.stereotype.Service;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -14,8 +15,9 @@ import java.nio.file.StandardOpenOption;
 import java.util.List;
 import java.util.Random;
 
+@Service
 public class CirculationProcessor implements Processor<Circulation> {
-  private Random random = new Random();
+  private final Random random = new Random();
 
 
   @Override

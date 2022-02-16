@@ -2,7 +2,7 @@ package com.moex.jxlsexample.service.processor;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import com.moex.jxlsexample.service.processor.utils.TestUtils;
+import com.moex.jxlsexample.utils.TestUtils;
 import org.junit.jupiter.api.Test;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.Mode;
@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit;
 @State(Scope.Benchmark)
 public class CirculationProcessorTest {
 
-  private CirculationProcessor circulationProcessor = new CirculationProcessor();
+  private final CirculationProcessor circulationProcessor = new CirculationProcessor();
 
   @Test
   public void shouldGenerateOrderFromTemplate() throws IOException {
@@ -42,7 +42,7 @@ public class CirculationProcessorTest {
     var output = circulationProcessor.processOrder(circulations);
 
     assertNotNull(output);
-//    Files.delete(output.toPath());
+    Files.delete(output.toPath());
   }
 
   @Test
